@@ -1,5 +1,5 @@
 let imageArray = ['img/01.webp', 'img/02.webp', 'img/03.webp', 'img/04.webp', 'img/05.webp'];
-
+let thumbArray = ['SpiderMan', 'Ratchet & Clank', 'Fortnite', 'Stray', 'MARVEL Avengers']
 
 const imageListDom = document.querySelector('.image-list');
 const imageColumn = document.querySelector('.list');
@@ -10,7 +10,8 @@ let columnContent= "";
 
 for (let i = 0; i < imageArray.length; i++) {
     const imageWrapper = `<div class="image-wrapper">
-                                <img class="image" src="${imageArray[i]}" />
+                                <img class="image" src="${imageArray[i]}"/>
+                                <div class="thumb">${thumbArray[i]}</div>
                             </div>`;
 
     sliderContent += imageWrapper;
@@ -24,6 +25,7 @@ for (let i = 0; i < imageArray.length; i++) {
     columnContent += columnWrapper;
     
     imageColumn.innerHTML = columnContent;
+
 }
 
 const columnDom = document.getElementsByClassName('small-img');
@@ -83,4 +85,21 @@ function(){
 
     }
 
-})
+});
+
+
+
+const timer = loop();
+
+
+setInterval(timer, 3000);
+
+
+function loop() {
+        imagesWrapperDom[activeImage].classList.remove('show');
+        columnDom[activeImage].classList.remove('brightness');
+        activeImage++;
+        columnDom[activeImage].classList.add('brightness');
+        imagesWrapperDom[activeImage].classList.add('show');
+}
+
