@@ -33,11 +33,18 @@
     background-color: rgba(0, 0, 0, 0.6);
     padding: 3px;
     border-radius: 10px;
-    font-size: 30px;
     color: white;
     position: absolute;
-    bottom: 50px;
+    bottom: 20px;
     right: 20px;
+    width: 200px;
+}
+.thumb-title {
+    font-size: 15px;
+}
+
+.thumb-text {
+    font-size: 12px;
 }
 
 .image, .small-img {
