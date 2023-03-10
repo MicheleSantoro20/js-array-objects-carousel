@@ -42,6 +42,7 @@ for (let i = 0; i < imageArray.length; i++) {
     sliderContent += imageWrapper;
     
     imageListDom.innerHTML =sliderContent
+    
 
     const columnWrapper = `<div class="wrapper">
                                 <img class="small-img scuro" src="${imageArray[i]['image']}" />
@@ -50,6 +51,7 @@ for (let i = 0; i < imageArray.length; i++) {
     columnContent += columnWrapper;
     
     imageColumn.innerHTML = columnContent;
+    
 
 }
 
@@ -66,29 +68,7 @@ const nextDom = document.querySelector('#next');
 const prevDom = document.querySelector('#prev');
 
 
-nextDom.addEventListener('click', 
-    
-    function(){
-
-        if (activeImage < imagesWrapperDom.length - 1) {
-            imagesWrapperDom[activeImage].classList.remove('show');
-            columnDom[activeImage].classList.remove('brightness');
-            activeImage++;
-            columnDom[activeImage].classList.add('brightness');
-            imagesWrapperDom[activeImage].classList.add('show');
-
-        } else if (activeImage == imagesWrapperDom.length - 1) {
-            imagesWrapperDom[activeImage].classList.remove('show');
-            columnDom[activeImage].classList.remove('brightness');
-            activeImage = 0;
-            columnDom[activeImage].classList.add('brightness');
-            imagesWrapperDom[activeImage].classList.add('show');
-        }
-
-
-
-
-    })
+nextDom.addEventListener('click', loop)
 
     
 prevDom.addEventListener('click', 
@@ -115,14 +95,24 @@ function(){
 
 
 
-setInterval(loop(), 3000);
+let clock = setInterval(loop, 3000);
 
 
 function loop() {
+    if (activeImage < imagesWrapperDom.length - 1) {
         imagesWrapperDom[activeImage].classList.remove('show');
         columnDom[activeImage].classList.remove('brightness');
+        activeImage++;
         columnDom[activeImage].classList.add('brightness');
         imagesWrapperDom[activeImage].classList.add('show');
+
+    } else if (activeImage == imagesWrapperDom.length - 1) {
+        imagesWrapperDom[activeImage].classList.remove('show');
+        columnDom[activeImage].classList.remove('brightness');
+        activeImage = 0;
+        columnDom[activeImage].classList.add('brightness');
+        imagesWrapperDom[activeImage].classList.add('show');
+    }
 
 }
 

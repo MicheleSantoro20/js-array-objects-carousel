@@ -41,10 +41,12 @@
 }
 .thumb-title {
     font-size: 15px;
+    text-shadow: 1px 1px black;
 }
 
 .thumb-text {
     font-size: 12px;
+    text-shadow: 1px 1px black;
 }
 
 .image, .small-img {
