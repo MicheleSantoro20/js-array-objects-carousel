@@ -32,10 +32,10 @@ let columnContent= "";
 for (let i = 0; i < imageArray.length; i++) {
     const imageWrapper = `<div class="image-wrapper">
                                 <img class="image" src="${imageArray[i]['image']}"/>
-                                <div class="thumb">
-                                    <div class="thumb-title">${imageArray[i]['title']}</div>
+                                <div class="text-wrapper">
+                                    <div class="img-title">${imageArray[i]['title']}</div>
                                     </br>
-                                    <div class="thumb-text">${imageArray[i]['text']}</div>
+                                    <div class="imgtext">${imageArray[i]['text']}</div>
                                 </div>
                             </div>`;
 
